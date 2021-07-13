@@ -50,4 +50,10 @@ public class ClinicCalendar {
     return appointments.stream()
         .anyMatch(appt -> appt.getAppointmentDateTime().toLocalDate().equals(date));
   }
+
+  public List<PatientAppointment> getUpcomingAppointments() {
+    return appointments.stream()
+        .filter(appointment -> appointment.getAppointmentDateTime().toLocalDate().isAfter(today))
+        .collect(Collectors.toList());
+  }
 }
