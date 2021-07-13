@@ -114,9 +114,7 @@ public class ClinicMain {
       Integer inches = scanner.nextInt();
       System.out.print("  Weight in Pounds: ");
       Integer pounds = scanner.nextInt();
-      Double bmi = (double) (pounds * 703) / (inches * inches);
-      double roundedToTwoPlaces = new BigDecimal(bmi)
-          .setScale(2, RoundingMode.HALF_UP).doubleValue();
+      double roundedToTwoPlaces = BMICalculator.calculateBmi(inches, pounds);
       appt.setAppointmentBmi(roundedToTwoPlaces);
       System.out.println("Set patient BMI to " + roundedToTwoPlaces + "\n\n");
     }
